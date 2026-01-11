@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.config import get_settings
 from app.auth import router as auth_router
-from app. donations import router as donations_router
+from app.donations import router as donations_router
 from app.ngos import router as ngos_router
 from app.leaderboard import router as leaderboard_router
 from app.admin import router as admin_router
@@ -44,10 +44,10 @@ app.add_middleware(
 )
 
 # Include routers
-app.include_router(auth_router. router, prefix="/api")
+app.include_router(auth_router.router, prefix="/api")
 app.include_router(donations_router.router, prefix="/api")
 app.include_router(ngos_router.router, prefix="/api")
-app.include_router(leaderboard_router. router, prefix="/api")
+app.include_router(leaderboard_router.router, prefix="/api")
 app.include_router(admin_router.router, prefix="/api")
 
 
@@ -60,6 +60,6 @@ async def root():
     }
 
 
-@app. get("/health")
+@app.get("/health")
 async def health_check():
     return {"status": "healthy"}
